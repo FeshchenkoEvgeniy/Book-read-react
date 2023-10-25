@@ -1,8 +1,10 @@
+import css from "./Header.module.css";
+
 function Header() {
   return (
-    <header>
-      <h1>BR</h1>
-    </header>
+    <div className={css.headerContainer}>
+      <h1 className={css.title}>BR</h1>
+    </div>
   );
 }
 

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import AboutRegister from "../About/AboutRegister";
-import Header from "../Header/Header";
 import { register } from "../../redux/auth/operation";
+import { Link } from "react-router-dom";
 
 function RegisterForm() {
   const dispatch = useDispatch();
@@ -22,7 +22,6 @@ function RegisterForm() {
 
   return (
     <>
-      <Header />
       <div>
         <div>
           <form onSubmit={handleSubmit}>
@@ -37,7 +36,7 @@ function RegisterForm() {
             <button type="submit">Зареєструватися</button>
           </form>
           <span>
-            Вже з нами?<a href="/login">Увійти</a>
+            Вже з нами?<Link to="/login">Увійти</Link>
           </span>
         </div>
       </div>

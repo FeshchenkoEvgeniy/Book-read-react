@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import AboutLogin from "../About/AboutLogin";
-import Header from "../Header/Header";
 import { login } from "../../redux/auth/operation";
+import { Link } from "react-router-dom";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -22,7 +22,6 @@ function LoginForm() {
 
   return (
     <>
-      <Header />
       <div>
         <div>
           <form onSubmit={handleSumbit}>
@@ -42,8 +41,8 @@ function LoginForm() {
               placeholder="Пароль"
             />
             <button type="submit">Увійти</button>
-            <a href="/register">Реєстрація</a>
           </form>
+          <Link to="/register">Реєстрація</Link>
         </div>
       </div>
       <AboutLogin />

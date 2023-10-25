@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import AboutRegister from "./About/AboutRegister";
+import { Navigate, Route, Routes } from "react-router-dom";
 import LoginForm from "./LoginForm/LoginForm";
 import RegisterForm from "./RegisterForm/RegisterForm";
-import Info from "./About/Info";
+import About from "./About/About";
+import Layout from "../pages/layout";
 
 function App() {
   let widthScreen = window.screen.width;
@@ -11,14 +11,18 @@ function App() {
   window.addEventListener("resize", function () {
     setState(window.screen.width);
   });
-
   return (
     <>
       <Routes>
-        <Route path="/" element={state <= 768 ? <Info /> : <RegisterForm />} />
-        {/* <Route path="/register" element={<RegisterForm />} /> */}
-        <Route path="/login" element={<LoginForm />} />
-        {/* {state <= 768 ? <AboutRegister /> : <RegisterForm />} */}
+        <Route path="/" element={<Layout />}>
+          {/* <Route
+            index
+            element={state <= 768 ? <About /> : <Navigate to="login" replace />}
+          /> */}
+          <Route index element={<About />} />
+          <Route path="register" element={<RegisterForm />} />
+          <Route path="login" element={<LoginForm />} />
+        </Route>
       </Routes>
     </>
   );
